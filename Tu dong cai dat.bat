@@ -37,6 +37,7 @@ echo  12. Cai dat Phan mem Doc/Sua PDF				[Bam phim 12]
 echo  13. Cai dat Math Type						[Bam phim 13]
 echo  14. Cai dat P/m quay man hinh					[Bam phim 14]
 echo  15. Cai dat P/m doi duoi					[Bam phim 15]
+echo  16. Cap nhat phien ban moi				[Bam phim 15]
 echo   E. Thoat							[Bam phim  e]
 echo --------------------------------------------------------------------------------
 set /p choice="Nhap lua chon: "
@@ -57,6 +58,7 @@ if "%choice%"=="12" goto cai_foxit
 if "%choice%"=="13" goto cai_mathtype
 if "%choice%"=="14" goto cai_quaymanhinh
 if "%choice%"=="15" goto cai_formatfactory
+if "%choice%"=="16" goto capnhat
 if "%choice%"=="e" exit
 
 echo Lua chon khong hop le, vui long thu lai!
@@ -780,3 +782,24 @@ del "%temp%\create_shortcut.vbs"
 echo Hoan thanh!
 pauser
 goto caidat
+
+
+:capnhat
+set "URL=https://raw.githubusercontent.com/minhhai87/tienichcaiwindao/refs/heads/main/Tu%20dong%20cai%20dat.bat"
+
+:: Đường dẫn lưu file trên máy tính (cùng thư mục với script đang chạy)
+set "FILE=Tu dong cai dat.bat"
+
+:: Tải file mới từ GitHub
+echo Dang tai file moi tu GitHub...
+powershell -Command "(New-Object System.Net.WebClient).DownloadFile('%URL%', '%FILE%')"
+
+:: Kiểm tra nếu tải thành công thì chạy lại file
+if exist "%FILE%" (
+    echo Da tai xong! Dang chay lai file moi...
+    start "" "%FILE%"
+    exit
+) else (
+    echo Loi: Khong tai duoc file tu GitHub!
+    pause
+)
