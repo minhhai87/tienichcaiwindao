@@ -1,7 +1,7 @@
 ﻿
 
 @echo off
-title Tu dong cai dat Phan mem - Thu vien v1.1
+title Tu dong cai dat Phan mem - Thu vien v1.2
 mode con: cols=80 lines=30
 net session >nul 2>&1
 if %errorLevel% neq 0 (
@@ -37,7 +37,7 @@ echo  12. Cai dat Phan mem Doc/Sua PDF				[Bam phim 12]
 echo  13. Cai dat Math Type						[Bam phim 13]
 echo  14. Cai dat P/m quay man hinh					[Bam phim 14]
 echo  15. Cai dat P/m doi duoi					[Bam phim 15]
-echo  16. Cap nhat phien ban moi				[Bam phim 15]
+echo  16. Cap nhat phien ban moi					[Bam phim 15]
 echo   E. Thoat							[Bam phim  e]
 echo --------------------------------------------------------------------------------
 set /p choice="Nhap lua chon: "
